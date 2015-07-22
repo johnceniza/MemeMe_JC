@@ -16,6 +16,9 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyd-OI-9eN" userLabel="memeImage">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggh-RG-nQT">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -26,12 +29,54 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4Nq-R9-mou"/>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="R0o-rM-Ghf">
+                                <rect key="frame" x="0.0" y="87" width="600" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="a5L-WE-4b2"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="MEME TOP">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="zyw-wb-wUk" userLabel="MEME BOTTOM">
+                                <rect key="frame" x="0.0" y="468" width="600" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="BXR-Fs-5Ep"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="MEME BOTTOM">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="R0o-rM-Ghf" firstAttribute="width" secondItem="M62-Ph-WFJ" secondAttribute="width" id="0Gy-kL-OUA"/>
+                            <constraint firstAttribute="centerY" secondItem="Pyd-OI-9eN" secondAttribute="centerY" id="4Cv-ih-kxY"/>
+                            <constraint firstAttribute="height" secondItem="Pyd-OI-9eN" secondAttribute="height" id="8Im-1W-dPZ"/>
+                            <constraint firstAttribute="centerX" secondItem="R0o-rM-Ghf" secondAttribute="centerX" id="DCN-x1-F6O"/>
+                            <constraint firstItem="zyw-wb-wUk" firstAttribute="width" secondItem="M62-Ph-WFJ" secondAttribute="width" id="HXJ-4z-Tbh"/>
+                            <constraint firstAttribute="centerX" secondItem="Pyd-OI-9eN" secondAttribute="centerX" id="Hh9-68-fdW"/>
+                            <constraint firstAttribute="centerX" secondItem="zyw-wb-wUk" secondAttribute="centerX" id="Qky-wH-19K"/>
+                            <constraint firstItem="Ggh-RG-nQT" firstAttribute="top" secondItem="zyw-wb-wUk" secondAttribute="bottom" constant="18" id="Tcx-hI-MUY"/>
                             <constraint firstItem="x2M-iz-S28" firstAttribute="top" secondItem="Ggh-RG-nQT" secondAttribute="bottom" id="WN6-Ed-UDq"/>
                             <constraint firstAttribute="width" secondItem="Ggh-RG-nQT" secondAttribute="width" id="YU9-cE-gNk"/>
                             <constraint firstAttribute="centerX" secondItem="Ggh-RG-nQT" secondAttribute="centerX" id="aQL-7f-4uF"/>
+                            <constraint firstAttribute="width" secondItem="Pyd-OI-9eN" secondAttribute="width" id="mIY-T0-Fft"/>
+                            <constraint firstItem="R0o-rM-Ghf" firstAttribute="top" secondItem="b9i-G9-BNx" secondAttribute="bottom" constant="23" id="wLd-tJ-rh3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Yzc-ly-JRf">
@@ -41,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqK-23-Qxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-570" y="130"/>
+            <point key="canvasLocation" x="-573" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="88m-dt-H36">
