@@ -16,26 +16,34 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyd-OI-9eN" userLabel="memeImage">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pyd-OI-9eN" userLabel="memeImage">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ggh-RG-nQT">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="c2e-On-36F"/>
-                                    <barButtonItem systemItem="camera" id="ENb-jQ-q4v" userLabel="Camera"/>
+                                    <barButtonItem systemItem="camera" id="ENb-jQ-q4v" userLabel="Camera">
+                                        <connections>
+                                            <action selector="cameraPressed:" destination="1qG-Ar-m06" id="GqJ-a9-1ev"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="zhj-GI-7pc"/>
-                                    <barButtonItem title="Album" id="xI8-qU-fnt" userLabel="Album"/>
+                                    <barButtonItem title="Album" id="xI8-qU-fnt" userLabel="Album">
+                                        <connections>
+                                            <action selector="albumPressed:" destination="1qG-Ar-m06" id="1Ap-BQ-LAA"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4Nq-R9-mou"/>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="R0o-rM-Ghf">
-                                <rect key="frame" x="0.0" y="87" width="600" height="70"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="zyw-wb-wUk" userLabel="MEME BOTTOM">
+                                <rect key="frame" x="0.0" y="468" width="600" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="a5L-WE-4b2"/>
+                                    <constraint firstAttribute="height" constant="70" id="BXR-Fs-5Ep"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="MEME TOP">
+                                    <fragment content="MEME BOTTOM">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -45,13 +53,13 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="zyw-wb-wUk" userLabel="MEME BOTTOM">
-                                <rect key="frame" x="0.0" y="468" width="600" height="70"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="R0o-rM-Ghf">
+                                <rect key="frame" x="0.0" y="87" width="600" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="BXR-Fs-5Ep"/>
+                                    <constraint firstAttribute="height" constant="70" id="a5L-WE-4b2"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="MEME BOTTOM">
+                                    <fragment content="MEME TOP">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <font key="NSFont" size="17" name="HelveticaNeue"/>
@@ -80,13 +88,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Yzc-ly-JRf">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="gYs-VH-i2w"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="gYs-VH-i2w">
+                            <connections>
+                                <action selector="sharePressed:" destination="1qG-Ar-m06" id="K4F-at-SqI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="x4O-Dr-rgk"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bottomLabel" destination="zyw-wb-wUk" id="PjZ-2y-iFq"/>
+                        <outlet property="memeImageView" destination="Pyd-OI-9eN" id="Tu3-3M-GCf"/>
+                        <outlet property="topLabel" destination="R0o-rM-Ghf" id="DUi-tY-MBt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqK-23-Qxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-573" y="148"/>
+            <point key="canvasLocation" x="-688" y="154"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="88m-dt-H36">
