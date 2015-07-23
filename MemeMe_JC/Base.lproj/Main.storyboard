@@ -97,6 +97,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bottomLabel" destination="zyw-wb-wUk" id="PjZ-2y-iFq"/>
+                        <outlet property="cameraButton" destination="ENb-jQ-q4v" id="XOV-B9-BHS"/>
                         <outlet property="memeImageView" destination="Pyd-OI-9eN" id="Tu3-3M-GCf"/>
                         <outlet property="topLabel" destination="R0o-rM-Ghf" id="DUi-tY-MBt"/>
                     </connections>
