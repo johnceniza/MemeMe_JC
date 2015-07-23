@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var memeImageView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
     
     let imagePicker = UIImagePickerController()
     
@@ -21,17 +22,48 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        imagePicker.delegate = self
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+        
+        var paraStyle = NSMutableParagraphStyle()
+        paraStyle.alignment = NSTextAlignment.Center
+        
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40.0)!,
+            NSStrokeWidthAttributeName : -4.0,
+            NSParagraphStyleAttributeName : paraStyle
+        ]
+
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            cameraButton.enabled = true
+        } else {
+            cameraButton.enabled = false
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        unsubscribeFromKeyboardNotifications()
     }
     
     //MARK: - IBActions
     
     @IBAction func cameraPressed(sender: UIBarButtonItem) {
-        //TODO: add code for camera selection
+        imagePicker.sourceType = .Camera
+        self.presentViewController(imagePicker, animated: true, completion:nil)
     }
     
     @IBAction func albumPressed(sender: UIBarButtonItem) {
         imagePicker.sourceType = .PhotoLibrary
-        imagePicker.delegate = self
         self.presentViewController(imagePicker, animated: true, completion:nil)
     }
 
@@ -41,14 +73,63 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     //MARK: - UIImagePicker delegate functions
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        //user just finished selecting an image - add code to take image and show it on the screen and scale
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
-        //TODO: add unrwapping and check dict for UIImage type
-        memeImageView.image = image
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            memeImageView.image = image
+        }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    //MARK: - UITextFieldDelegate delegate functions
+
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == bottomTextField {
+            if textField.text == "BOTTOM" {
+                textField.text = ""
+            }
+            
+        } else {
+            if textField.text == "TOP" {
+                textField.text = ""
+            }
+        }
+    }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    //MARK: - Keyboard Notifications and keyboard management
+    
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if bottomTextField.editing {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if bottomTextField.editing {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.CGRectValue().height
+    }
 }
 
