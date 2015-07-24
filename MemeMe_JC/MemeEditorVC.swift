@@ -80,6 +80,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
 
     @IBAction func sharePressed(sender: UIBarButtonItem) {
         //pass image to ActivityViewController for sharing
+        self.resignFirstResponder()
         let sharedImage = generateMemeImage()
         let activityView = UIActivityViewController(activityItems: [sharedImage], applicationActivities: nil)
         
@@ -103,7 +104,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     
     //dismiss view controller
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     //MARK: - UIImagePicker delegate functions
