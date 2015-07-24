@@ -101,6 +101,8 @@
                         <outlet property="bottomTextField" destination="wQy-a3-Z6T" id="XRV-QZ-HX7"/>
                         <outlet property="cameraButton" destination="ENb-jQ-q4v" id="XOV-B9-BHS"/>
                         <outlet property="memeImageView" destination="Pyd-OI-9eN" id="Tu3-3M-GCf"/>
+                        <outlet property="shareButton" destination="gYs-VH-i2w" id="g2k-Gm-cXL"/>
+                        <outlet property="toolbar" destination="Ggh-RG-nQT" id="CAI-mK-BBG"/>
                         <outlet property="topTextField" destination="jPo-Yb-pQ9" id="D9H-mF-LhC"/>
                     </connections>
                 </viewController>
