@@ -83,6 +83,10 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         let sharedImage = generateMemeImage()
         let activityView = UIActivityViewController(activityItems: [sharedImage], applicationActivities: nil)
         
+        //present activity view
+        self.presentViewController(activityView, animated: true, completion:nil)
+        
+        
         //create meme object and save meme after completion of sharing
         activityView.completionWithItemsHandler = {activity, success, items, error in
             //Create the meme
@@ -92,10 +96,14 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
             let object = UIApplication.sharedApplication().delegate
             let appDelegate = object as! AppDelegate
             appDelegate.memesArray.append(meme)
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
-        
-        //present activity view
-        self.presentViewController(activityView, animated: true, completion:nil)
+    }
+    
+    //dismiss view controller
+    @IBAction func cancelPressed(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     //MARK: - UIImagePicker delegate functions
