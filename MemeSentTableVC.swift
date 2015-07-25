@@ -40,6 +40,8 @@ class MemeSentTableVC: UITableViewController {
             
             let detailView:MemeDetailVC = segue.destinationViewController as! MemeDetailVC
             detailView.memeImage = (memeArray[selectedRow].finalMemeImage)
+            detailView.index = selectedRow
+            detailView.selectedMeme = memeArray[selectedRow]
         }
     }
 }

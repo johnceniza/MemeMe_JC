@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Sent Memes-->
+        <!--editMeme-->
         <scene sceneID="yCo-jG-EDl">
             <objects>
-                <viewController title="Sent Memes" id="1qG-Ar-m06" customClass="MemeEditorVC" customModule="MemeMe_JC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Edit Meme" id="1qG-Ar-m06" userLabel="editMeme" customClass="MemeEditorVC" customModule="MemeMe_JC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b9i-G9-BNx"/>
                         <viewControllerLayoutGuide type="bottom" id="x2M-iz-S28"/>
@@ -143,7 +143,7 @@
         <!--Sent Memes-->
         <scene sceneID="1Ji-xZ-O9S">
             <objects>
-                <tableViewController id="BVl-BD-WKk" customClass="MemeSentTableVC" customModule="MemeMe_JC" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Sent Memes" id="BVl-BD-WKk" customClass="MemeSentTableVC" customModule="MemeMe_JC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sJP-Yd-lmq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,7 +182,7 @@
         <!--Sent Memes-->
         <scene sceneID="Hme-sC-XST">
             <objects>
-                <collectionViewController id="lAK-cL-ci8" sceneMemberID="viewController">
+                <collectionViewController title="Sent Memes" id="lAK-cL-ci8" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Yw7-Hv-m7M">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,22 +233,53 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qgI-s7-hiw">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYy-BU-TQw" userLabel="Delete">
+                                <rect key="frame" x="265" y="513" width="70" height="30"/>
+                                <color key="backgroundColor" red="0.98890388011932373" green="0.42213500180380398" blue="0.37233504418991575" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="lcT-QH-NJ2"/>
+                                    <constraint firstAttribute="height" constant="30" id="r75-CQ-MYB"/>
+                                </constraints>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deletePressed:" destination="vXr-8f-YAZ" eventType="touchUpInside" id="j8G-vF-9tx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Qhi-Tk-pSN" firstAttribute="top" secondItem="DYy-BU-TQw" secondAttribute="bottom" constant="8" id="2AC-hh-JMq"/>
+                            <constraint firstItem="Qhi-Tk-pSN" firstAttribute="top" secondItem="DYy-BU-TQw" secondAttribute="bottom" constant="13" id="8wi-QD-JOf"/>
                             <constraint firstAttribute="height" secondItem="qgI-s7-hiw" secondAttribute="height" id="Aim-4s-61D"/>
                             <constraint firstAttribute="centerX" secondItem="qgI-s7-hiw" secondAttribute="centerX" id="OHf-Zi-UnK"/>
                             <constraint firstAttribute="centerY" secondItem="qgI-s7-hiw" secondAttribute="centerY" id="ZKg-h0-3Q9"/>
                             <constraint firstAttribute="width" secondItem="qgI-s7-hiw" secondAttribute="width" id="mdK-8q-TbU"/>
+                            <constraint firstAttribute="centerX" secondItem="DYy-BU-TQw" secondAttribute="centerX" id="yJh-zb-kOJ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2AC-hh-JMq"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="eM2-jK-kxW">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="lmV-SI-Me5">
+                            <connections>
+                                <segue destination="rl8-Gi-Eo7" kind="presentation" identifier="memeDetailToEdit" id="NwS-35-wBe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="qgI-s7-hiw" id="LXa-00-lGn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QmH-TC-CUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-693" y="2931"/>
+            <point key="canvasLocation" x="-721" y="2938"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xLv-F5-u3E">
@@ -286,6 +317,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="22U-xk-ktu"/>
+        <segue reference="kqn-V0-Fv6"/>
+        <segue reference="NwS-35-wBe"/>
     </inferredMetricsTieBreakers>
 </document>
