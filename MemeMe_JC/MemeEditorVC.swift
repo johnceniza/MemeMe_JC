@@ -18,6 +18,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var shareButton: UIBarButtonItem!
 
     let imagePicker = UIImagePickerController()
+    var editMeme: Meme!
     
     //MARK: - UIViewController functions
 
@@ -54,6 +55,14 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         
         //initially disable share button until image is chosen
         shareButton.enabled = false
+        
+        //load meme if we're editing one and enable share button
+        if let meme = editMeme {
+            memeImageView.image = meme.image
+            topTextField.text = meme.topText
+            bottomTextField.text = meme.bottomText
+            shareButton.enabled = true
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -80,7 +89,9 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
 
     @IBAction func sharePressed(sender: UIBarButtonItem) {
         //pass image to ActivityViewController for sharing
-        self.resignFirstResponder()
+        topTextField.resignFirstResponder()
+        bottomTextField.resignFirstResponder()
+        
         let sharedImage = generateMemeImage()
         let activityView = UIActivityViewController(activityItems: [sharedImage], applicationActivities: nil)
         
