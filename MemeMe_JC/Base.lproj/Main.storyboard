@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lJG-ja-bIy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--editMeme-->
@@ -186,26 +188,73 @@
         <!--Sent Memes-->
         <scene sceneID="Hme-sC-XST">
             <objects>
-                <collectionViewController title="Sent Memes" id="lAK-cL-ci8" sceneMemberID="viewController">
+                <collectionViewController title="Sent Memes" id="lAK-cL-ci8" customClass="MemeSentCollectionVC" customModule="MemeMe_JC" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Yw7-Hv-m7M">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1kl-Zv-7J1">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1kl-Zv-7J1">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="64" maxX="0.0" maxY="44"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2OD-av-XQR">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="2OD-av-XQR" customClass="customCollectionCell" customModule="MemeMe_JC" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3gA-hn-Ket">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="3gA-hn-Ket" secondAttribute="height" multiplier="1:1" id="9bk-bE-W6H"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyg-8K-dkD" userLabel="top">
+                                            <rect key="frame" x="4" y="0.0" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz7-Hj-Qv2" userLabel="bottom">
+                                            <rect key="frame" x="4" y="29" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="Uyg-8K-dkD" secondAttribute="centerX" id="2yX-Tj-uK5"/>
+                                    <constraint firstAttribute="centerX" secondItem="fz7-Hj-Qv2" secondAttribute="centerX" id="4ah-NV-n4S"/>
+                                    <constraint firstAttribute="centerX" secondItem="3gA-hn-Ket" secondAttribute="centerX" id="8FN-k5-oBB"/>
+                                    <constraint firstItem="Uyg-8K-dkD" firstAttribute="top" secondItem="2OD-av-XQR" secondAttribute="topMargin" constant="-8" id="It4-Ge-eOO"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="fz7-Hj-Qv2" secondAttribute="bottom" constant="-8" id="JF3-Eq-Buu"/>
+                                    <constraint firstAttribute="centerY" secondItem="3gA-hn-Ket" secondAttribute="centerY" id="JTJ-Sx-P3x"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="fz7-Hj-Qv2" secondAttribute="bottom" constant="-8" id="Kgc-Mm-N0e"/>
+                                    <constraint firstItem="3gA-hn-Ket" firstAttribute="top" secondItem="2OD-av-XQR" secondAttribute="topMargin" constant="-8" id="Qpy-7a-EIf"/>
+                                    <constraint firstAttribute="centerX" secondItem="Uyg-8K-dkD" secondAttribute="centerX" id="SiJ-9K-Rcj"/>
+                                    <constraint firstItem="3gA-hn-Ket" firstAttribute="leading" secondItem="2OD-av-XQR" secondAttribute="leadingMargin" constant="-8" id="fYc-3F-QTm"/>
+                                    <constraint firstItem="Uyg-8K-dkD" firstAttribute="top" secondItem="2OD-av-XQR" secondAttribute="topMargin" constant="-8" id="fgn-Fo-wV2"/>
+                                    <constraint firstAttribute="centerX" secondItem="fz7-Hj-Qv2" secondAttribute="centerX" id="vYX-Hf-iq0"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fYc-3F-QTm"/>
+                                        <exclude reference="SiJ-9K-Rcj"/>
+                                        <exclude reference="fgn-Fo-wV2"/>
+                                        <exclude reference="4ah-NV-n4S"/>
+                                        <exclude reference="JF3-Eq-Buu"/>
+                                    </mask>
+                                </variation>
                                 <connections>
+                                    <outlet property="bottomLabel" destination="fz7-Hj-Qv2" id="gXr-oi-NwF"/>
+                                    <outlet property="mainImage" destination="3gA-hn-Ket" id="f9u-wO-FOQ"/>
+                                    <outlet property="topLabel" destination="Uyg-8K-dkD" id="XiS-qH-nkn"/>
                                     <segue destination="vXr-8f-YAZ" kind="show" identifier="gridToDetailSegue" id="22U-xk-ktu"/>
                                 </connections>
                             </collectionViewCell>
@@ -321,7 +370,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kqn-V0-Fv6"/>
+        <segue reference="22U-xk-ktu"/>
         <segue reference="NwS-35-wBe"/>
     </inferredMetricsTieBreakers>
 </document>
