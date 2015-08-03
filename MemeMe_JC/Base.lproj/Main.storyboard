@@ -70,8 +70,10 @@
                             <constraint firstAttribute="centerX" secondItem="Pyd-OI-9eN" secondAttribute="centerX" id="Hh9-68-fdW"/>
                             <constraint firstItem="wQy-a3-Z6T" firstAttribute="top" secondItem="Pyd-OI-9eN" secondAttribute="bottom" constant="-139" id="OrD-8c-gS4"/>
                             <constraint firstItem="wQy-a3-Z6T" firstAttribute="width" secondItem="M62-Ph-WFJ" secondAttribute="width" id="Ord-gr-7HN"/>
+                            <constraint firstItem="jPo-Yb-pQ9" firstAttribute="top" secondItem="b9i-G9-BNx" secondAttribute="bottom" constant="37" id="Uce-cJ-bFQ"/>
                             <constraint firstItem="x2M-iz-S28" firstAttribute="top" secondItem="Ggh-RG-nQT" secondAttribute="bottom" id="WN6-Ed-UDq"/>
                             <constraint firstAttribute="width" secondItem="Ggh-RG-nQT" secondAttribute="width" id="YU9-cE-gNk"/>
+                            <constraint firstItem="jPo-Yb-pQ9" firstAttribute="top" secondItem="M62-Ph-WFJ" secondAttribute="top" constant="101" id="ZYa-7Y-FRk"/>
                             <constraint firstAttribute="centerX" secondItem="Ggh-RG-nQT" secondAttribute="centerX" id="aQL-7f-4uF"/>
                             <constraint firstAttribute="centerX" secondItem="jPo-Yb-pQ9" secondAttribute="centerX" id="lYt-yy-ycI"/>
                             <constraint firstAttribute="width" secondItem="Pyd-OI-9eN" secondAttribute="width" id="mIY-T0-Fft"/>
@@ -83,6 +85,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Uce-cJ-bFQ"/>
+                                <exclude reference="sW8-gC-ZdH"/>
                                 <exclude reference="OrD-8c-gS4"/>
                                 <exclude reference="Ord-gr-7HN"/>
                                 <exclude reference="yyb-Yy-s3Z"/>
