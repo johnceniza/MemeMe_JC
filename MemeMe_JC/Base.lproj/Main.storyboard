@@ -178,8 +178,7 @@
                             <outlet property="delegate" destination="BVl-BD-WKk" id="ha2-aj-sGd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="List" id="DZd-Us-llc"/>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="l2p-kW-LYk"/>
+                    <tabBarItem key="tabBarItem" title="List" image="table_30x30" id="DZd-Us-llc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TBO-5m-ZNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -252,8 +251,7 @@
                             <outlet property="delegate" destination="lAK-cL-ci8" id="L0n-d4-qrj"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Grid" id="EBB-oY-ZyW"/>
-                    <navigationItem key="navigationItem" title="Sent Memes" id="9oJ-MG-O6T"/>
+                    <tabBarItem key="tabBarItem" title="Grid" image="collection_30x30" id="EBB-oY-ZyW"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVm-yE-9Cx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -357,8 +355,12 @@
             <point key="canvasLocation" x="180" y="860"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection_30x30" width="30" height="30"/>
+        <image name="table_30x30" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="22U-xk-ktu"/>
-        <segue reference="NwS-35-wBe"/>
+        <segue reference="U8u-ZJ-G4x"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,7 +17,6 @@ class MemeSentCollectionVC: UICollectionViewController, UICollectionViewDelegate
         //register for device orientation notification so that we can adjust the insets accordingly (based on nav bar height, status bar height and tab bar height)
         UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "orientationChange:", name: UIDeviceOrientationDidChangeNotification, object: UIDevice.currentDevice())
-        adjustInsets()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -26,19 +25,20 @@ class MemeSentCollectionVC: UICollectionViewController, UICollectionViewDelegate
         let appDelegate = object as! AppDelegate
         memeArray = appDelegate.memesArray
         collectionView?.reloadData()
+        adjustInsets()
     }
 
     //determine correct number of items for a single collection view section
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return memeArray.count
     }
 
     //load and populate custom cell with meme image and captions using indexPath to determine proper object in array to show
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionCell", forIndexPath: indexPath) as! customCollectionCell
-        cell.mainImage.image = memeArray[0].finalMemeImage
-        cell.topLabel.text = memeArray[0].topText
-        cell.bottomLabel.text = memeArray[0].bottomText
+        cell.mainImage.image = memeArray[indexPath.row].image
+        cell.topLabel.text = memeArray[indexPath.row].topText
+        cell.bottomLabel.text = memeArray[indexPath.row].bottomText
 
         // Configure the cell
         return cell
