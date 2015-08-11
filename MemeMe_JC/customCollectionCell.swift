@@ -10,6 +10,7 @@ import UIKit
 
 class customCollectionCell: UICollectionViewCell {
 
+    //custom cell outlets for better presentation of memes in the grid history view
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!

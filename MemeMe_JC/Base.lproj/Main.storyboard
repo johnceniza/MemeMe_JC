@@ -197,7 +197,7 @@
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="64" maxX="0.0" maxY="44"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="2OD-av-XQR" customClass="customCollectionCell" customModule="MemeMe_JC" customModuleProvider="target">
@@ -213,14 +213,14 @@
                                                 <constraint firstAttribute="width" secondItem="3gA-hn-Ket" secondAttribute="height" multiplier="1:1" id="9bk-bE-W6H"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyg-8K-dkD" userLabel="top">
-                                            <rect key="frame" x="4" y="0.0" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyg-8K-dkD" userLabel="top">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz7-Hj-Qv2" userLabel="bottom">
-                                            <rect key="frame" x="4" y="29" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz7-Hj-Qv2" userLabel="bottom">
+                                            <rect key="frame" x="0.0" y="29" width="50" height="21"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -229,28 +229,16 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="Uyg-8K-dkD" secondAttribute="centerX" id="2yX-Tj-uK5"/>
-                                    <constraint firstAttribute="centerX" secondItem="fz7-Hj-Qv2" secondAttribute="centerX" id="4ah-NV-n4S"/>
                                     <constraint firstAttribute="centerX" secondItem="3gA-hn-Ket" secondAttribute="centerX" id="8FN-k5-oBB"/>
-                                    <constraint firstItem="Uyg-8K-dkD" firstAttribute="top" secondItem="2OD-av-XQR" secondAttribute="topMargin" constant="-8" id="It4-Ge-eOO"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="fz7-Hj-Qv2" secondAttribute="bottom" constant="-8" id="JF3-Eq-Buu"/>
+                                    <constraint firstItem="Uyg-8K-dkD" firstAttribute="leading" secondItem="2OD-av-XQR" secondAttribute="leadingMargin" constant="-8" id="FYC-KO-9A3"/>
                                     <constraint firstAttribute="centerY" secondItem="3gA-hn-Ket" secondAttribute="centerY" id="JTJ-Sx-P3x"/>
-                                    <constraint firstAttribute="bottomMargin" secondItem="fz7-Hj-Qv2" secondAttribute="bottom" constant="-8" id="Kgc-Mm-N0e"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="fz7-Hj-Qv2" secondAttribute="bottom" constant="-8" id="Ln6-sg-wCS"/>
                                     <constraint firstItem="3gA-hn-Ket" firstAttribute="top" secondItem="2OD-av-XQR" secondAttribute="topMargin" constant="-8" id="Qpy-7a-EIf"/>
-                                    <constraint firstAttribute="centerX" secondItem="Uyg-8K-dkD" secondAttribute="centerX" id="SiJ-9K-Rcj"/>
-                                    <constraint firstItem="3gA-hn-Ket" firstAttribute="leading" secondItem="2OD-av-XQR" secondAttribute="leadingMargin" constant="-8" id="fYc-3F-QTm"/>
-                                    <constraint firstItem="Uyg-8K-dkD" firstAttribute="top" secondItem="2OD-av-XQR" secondAttribute="topMargin" constant="-8" id="fgn-Fo-wV2"/>
-                                    <constraint firstAttribute="centerX" secondItem="fz7-Hj-Qv2" secondAttribute="centerX" id="vYX-Hf-iq0"/>
+                                    <constraint firstItem="Uyg-8K-dkD" firstAttribute="top" secondItem="2OD-av-XQR" secondAttribute="topMargin" constant="-8" id="dPp-TW-gq0"/>
+                                    <constraint firstAttribute="centerX" secondItem="fz7-Hj-Qv2" secondAttribute="centerX" id="dkc-PW-3IK"/>
+                                    <constraint firstItem="fz7-Hj-Qv2" firstAttribute="leading" secondItem="2OD-av-XQR" secondAttribute="leadingMargin" constant="-8" id="e6R-YC-qGn"/>
+                                    <constraint firstAttribute="centerX" secondItem="Uyg-8K-dkD" secondAttribute="centerX" id="kcJ-rZ-Mxx"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="fYc-3F-QTm"/>
-                                        <exclude reference="SiJ-9K-Rcj"/>
-                                        <exclude reference="fgn-Fo-wV2"/>
-                                        <exclude reference="4ah-NV-n4S"/>
-                                        <exclude reference="JF3-Eq-Buu"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="bottomLabel" destination="fz7-Hj-Qv2" id="gXr-oi-NwF"/>
                                     <outlet property="mainImage" destination="3gA-hn-Ket" id="f9u-wO-FOQ"/>

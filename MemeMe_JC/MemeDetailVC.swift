@@ -35,7 +35,7 @@ class MemeDetailVC: UIViewController, UIAlertViewDelegate {
     }
     
     //MARK: - AlertView Delegates
-    
+    //handle delete confirmation pop up reply
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0 {
             //yes - proceed with delete and go back to table/collection view
@@ -53,6 +53,7 @@ class MemeDetailVC: UIViewController, UIAlertViewDelegate {
     
     //MARK: - Segue Management
     
+    //handle segue to edit mode and load MemeEditorVC and pass proper meme object
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "memeDetailToEdit" {
             let navController: UINavigationController = segue.destinationViewController as! UINavigationController

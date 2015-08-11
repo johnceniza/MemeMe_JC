@@ -113,7 +113,7 @@ class MemeEditorVC: UIViewController, UIImagePickerControllerDelegate, UINavigat
         }
     }
     
-    //dismiss view controller
+    //dismiss meme editor (self) when cancel button pressed
     @IBAction func cancelPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

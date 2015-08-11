@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//custom meme struct with convenience init method to set captions and image
 struct Meme {
     var topText: String!
     var bottomText: String!

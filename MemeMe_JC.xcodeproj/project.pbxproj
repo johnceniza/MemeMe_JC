@@ -171,6 +171,7 @@
 		6DEF0CD21B5F309C00A6BF64 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = AppDeco;
 				TargetAttributes = {
